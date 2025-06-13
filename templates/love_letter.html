@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Love Letter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ff5656, #df86c4, #f3e7ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .letter {
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 182, 193, 0.6);
+      backdrop-filter: blur(10px);
+      line-height: 1.8;
+      color: #444;
+      animation: fadeIn 1.5s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e75480;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #fff0f5;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      text-align: right;
+      margin-top: 40px;
+      font-style: italic;
+      color: deeppink;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Panel Geser */
+    .panel {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      transition: right 0.5s ease;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .panel.open {
+      right: 0;
+    }
+
+    .panel h2 {
+      font-family: 'Pacifico', cursive;
+      color: hotpink;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .panel img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+    }
+
+    /* Tombol Ikon */
+    .toggle-btn {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  background: hotpink;
+  color: white;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+/* Tombol hilang total */
+.toggle-btn.hidden {
+  display: none;
+}
+
+.emoji {
+  position: fixed;
+  font-size: 2rem;
+  z-index: 0;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
+}
+
+.emoji-1 { top: 20px; left: 20px; animation-delay: 0s; }
+.emoji-2 { top: 50px; right: 30px; animation-delay: 1s; }
+.emoji-3 { bottom: 40px; left: 40px; animation-delay: 2s; }
+.emoji-4 { bottom: 20px; right: 20px; animation-delay: 3s; }
+.emoji-5 { top: 200px; left: 100px; animation-delay: 1.5s; }
+.emoji-6 { bottom: 150px; right: 80px; animation-delay: 2.5s; }
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+    .toggle-btn.slide-away {
+      transform: translate(100%, -50%);
+      right: 300px; /* sesuaikan dengan lebar panel */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Surat Cinta -->
+  <div class="letter">
+    <h1>💌 Untuk Kamu</h1>
+    <p>
+      Sayangku,<br><br>
+      Sayangg aku minta maaf yaa, aku selalu bikin salah terus dan itu bikin kamu badmood.
+      Aku juga nyakitin hati kamu terus yaaaa, maafin aku yaaa...
+    </p>
+    <p>
+      Aku bener-bener minta maaf sama kamu. Setiap aku buat salah, aku nyesel banget. Aku bukannya mau nyakitin kamu terus kok. Percayalah aku cuma pengen disayang sama kamu. Aku sayang banget sama kamu. Aku gak bisa tanpa kamu.
+    </p>
+    <p>
+      Jadi kalo aku egois, aku gak mau selesai, maklumin yaa. Masalah-masalah kemarin itu, aku janji gak bakal kayak gitu lagi. Aku gak akan nyakitin kamu lagi.
+    </p>
+    <p>
+      Mungkin terdengar kayak omongan doang, tapi percaya deh, satu hal aja: cinta aku ke kamu itu beneran tulus. Aku gak pernah pura-pura dalam mencintai kamu. Hehe. Percaya yaa sayangku, aku serius, aku gak main-main.
+    </p>
+    <p>
+      Aku sayang kamu. Beneran. Banget. 💖
+    </p>
+
+    <div class="footer">
+      Dengan cinta,<br>
+      <strong>Calon suami yang selalu sayang kamu</strong>
+    </div>
+  </div>
+
+  <!-- Panel Geser Foto Kenangan -->
+  <div class="panel" id="memoryPanel">
+    <h2>📸 Foto Kita</h2>
+    <img src="{{ url_for('static', filename='Memory1.jpg') }}" alt="Foto 1">
+    <img src="{{ url_for('static', filename='Memory2.jpg') }}" alt="Foto 2">
+    <img src="{{ url_for('static', filename='Memory3.jpg') }}" alt="Foto 3">
+    <img src="{{ url_for('static', filename='Memory4.jpg') }}" alt="Foto 4">
+    <img src="{{ url_for('static', filename='Memory5.jpg') }}" alt="Foto 5">
+    <img src="{{ url_for('static', filename='Memory6.jpg') }}" alt="Foto 6">
+    <img src="{{ url_for('static', filename='Memory7.jpg') }}" alt="Foto 7">
+    <img src="{{ url_for('static', filename='Memory8.jpg') }}" alt="Foto 8">
+    <img src="{{ url_for('static', filename='Memory9.jpg') }}" alt="Foto 9">
+    <img src="{{ url_for('static', filename='Memory10.jpg') }}" alt="Foto 10">
+    <img src="{{ url_for('static', filename='Memory11.jpg') }}" alt="Foto 11">
+    <img src="{{ url_for('static', filename='Memory12.jpg') }}" alt="Foto 12">
+    <img src="{{ url_for('static', filename='Memory13.jpg') }}" alt="Foto 13">
+    <!-- Tambah foto lain sesuai keinginan -->
+  </div>
+
+  <!-- Tombol Ikon -->
+  <button class="toggle-btn" onclick="togglePanel()" id="toggleBtn">❤️</button>
+
+  <script>
+  const panel = document.getElementById('memoryPanel');
+  const btn = document.getElementById('toggleBtn');
+
+  function togglePanel() {
+    panel.classList.toggle('open');
+
+    if (panel.classList.contains('open')) {
+      btn.classList.add('hidden');
+    } else {
+      btn.classList.remove('hidden');
+    }
+  }
+
+  // Tutup panel jika klik di luar area panel
+  document.addEventListener('click', function (e) {
+    const clickedOutside = !panel.contains(e.target) && e.target !== btn;
+
+    if (panel.classList.contains('open') && clickedOutside) {
+      panel.classList.remove('open');
+      btn.classList.remove('hidden');
+    }
+  });
+</script>
+
+<!-- Emoji Dekorasi Lucu -->
+<div class="emoji emoji-1">💌</div>
+<div class="emoji emoji-2">🌸</div>
+<div class="emoji emoji-3">🐻</div>
+<div class="emoji emoji-4">🍓</div>
+<div class="emoji emoji-5">🌈</div>
+<div class="emoji emoji-6">✨</div>
+
+
+</body>
+</html>
