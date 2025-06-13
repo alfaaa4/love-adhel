@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Love Boom Lucu</title>
+  <style>
+    /* Emoji lucu di sudut */
+.decor-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: wiggle 2s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.decor-emoji.emoji-1 { top: 10px; left: 20px; }
+.decor-emoji.emoji-2 { bottom: 20px; right: 20px; }
+.decor-emoji.emoji-3 { top: 50px; right: 30px; }
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+/* Hujan hati kecil */
+.heart-drop {
+  position: fixed;
+  top: -50px;
+  color: pink;
+  font-size: 1.2rem;
+  animation: fall 5s linear infinite;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+    body {
+      background: linear-gradient(135deg, #ffcdd2, #f8bbd0, #fce4ec);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Quicksand', sans-serif;
+      position: relative;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .text {
+      color: white;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: fadeInGlow 2s ease-out forwards;
+      text-shadow: 0 0 10px white, 0 0 20px hotpink;
+      text-decoration: none;
+      z-index: 2;
+    }
+
+    @keyframes fadeInGlow {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+      box-shadow: 0 0 15px pink;
+      margin-bottom: 10px;
+      z-index: 2;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      transform: rotate(45deg);
+      animation: explode 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    @keyframes explode {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x), var(--y)) scale(0.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Floating Love Emojis */
+    .floating-love {
+      position: absolute;
+      font-size: var(--size, 60px);
+      color: pink;
+      opacity: 0.6;
+      left: var(--left);
+      top: var(--top);
+      animation: floatLove 6s ease-in-out infinite;
+      animation-delay: var(--delay);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes floatLove {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Teks Klik Menuju love_letter -->
+  <a href="{{ url_for('love_letter') }}" class="text">I Love You 🤍</a>
+
+  <!-- Foto Lucu -->
+  <img src="{{ url_for('static', filename='us.jpg.jpg') }}" alt="Foto Kita" class="photo" />
+
+  <!-- Hati utama bisa diklik -->
+  <a href="{{ url_for('love_letter') }}">
+    <div class="heart" style="--x: 0px; --y: -100px;"></div>
+  </a>
+
+  <!-- Hati berpencar lainnya -->
+  <div class="heart" style="--x: -200px; --y: -100px;"></div>
+  <div class="heart" style="--x: 200px; --y: -150px;"></div>
+  <div class="heart" style="--x: -150px; --y: 100px;"></div>
+  <div class="heart" style="--x: 150px; --y: 150px;"></div>
+  <div class="heart" style="--x: 100px; --y: -200px;"></div>
+  <div class="heart" style="--x: -100px; --y: 200px;"></div>
+
+  <!-- Floating love emojis besar & lucu -->
+  <div class="floating-love" style="--size:80px; --top:10%; --left:20%; --delay:0s;">💗</div>
+  <div class="floating-love" style="--size:100px; --top:30%; --left:70%; --delay:1s;">💘</div>
+  <div class="floating-love" style="--size:90px; --top:60%; --left:10%; --delay:2s;">💞</div>
+  <div class="floating-love" style="--size:75px; --top:80%; --left:60%; --delay:3s;">💕</div>
+  <div class="floating-love" style="--size:120px; --top:50%; --left:85%; --delay:1.5s;">💓</div>
+<!-- Emoji dekorasi pojokan -->
+<div class="decor-emoji emoji-1">🌸</div>
+<div class="decor-emoji emoji-2">🐰</div>
+<div class="decor-emoji emoji-3">🎀</div>
+
+<!-- Hati jatuh -->
+<span class="heart-drop" style="left: 10%;">💖</span>
+<span class="heart-drop" style="left: 30%; animation-delay: 1s;">💕</span>
+<span class="heart-drop" style="left: 50%; animation-delay: 2s;">💗</span>
+<span class="heart-drop" style="left: 70%; animation-delay: 3s;">💘</span>
+<span class="heart-drop" style="left: 90%; animation-delay: 4s;">💞</span>
+
+</body>
+</html>

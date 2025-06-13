@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Cinta UwU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f7, #fddde6, #fbc7e0, #e0c3fc);
+      background-size: 400% 400%;
+      animation: backgroundMove 10s ease infinite;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 192, 203, 0.6);
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+      position: relative;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      animation: pop 1s infinite alternate ease-in-out;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    h2 {
+      color: #ff69b4;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: #fff0f6;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 1.5rem;
+      color: #ff69b4;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-heart:nth-child(1) { top: -10px; left: -10px; animation-delay: 0s; }
+    .floating-heart:nth-child(2) { bottom: -10px; right: -10px; animation-delay: 1s; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-15px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.6; }
+    }
+
+    .heart-rain {
+  position: fixed;
+  top: -50px;
+  font-size: 1.5rem;
+  color: hotpink;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="emoji">sayangg</div>
+    <h2>Jawab jujur yaa~ 🩷</h2>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="POST">
+      <input type="text" name="kamu_sayang_aku_ga" placeholder="Kamu sayang aku ga?" required>
+      <input type="text" name="tanggal_jadian" placeholder="Kapan kita jadian?" required>
+      <button type="submit">💘 Kirim cinta</button>
+    </form>
+
+    <!-- Floating hearts -->
+    <div class="floating-heart">💗</div>
+    <div class="floating-heart">💞</div>
+  </div>
+
+  <!-- Hujan Hati -->
+<span class="heart-rain" style="left: 10%; animation-delay: 0s;">💖</span>
+<span class="heart-rain" style="left: 25%; animation-delay: 1s;">💘</span>
+<span class="heart-rain" style="left: 40%; animation-delay: 2s;">💗</span>
+<span class="heart-rain" style="left: 55%; animation-delay: 1.5s;">💕</span>
+<span class="heart-rain" style="left: 70%; animation-delay: 2.5s;">💓</span>
+<span class="heart-rain" style="left: 85%; animation-delay: 3s;">💞</span>
+
+</body>
+</html>
